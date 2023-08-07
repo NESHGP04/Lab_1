@@ -1,21 +1,38 @@
+//Laboratorio 1: Clases
+//Marinés García 23391
+
 public class Jugador {
     int reinicia;
-    String otraVez="";
-    int suma;
-
-    public Jugador(int reinicia, String otraVez, int suma){
-        this.reinicia = reinicia;
-        this.otraVez = otraVez;
+    int suma; 
+    int pts;
+    
+    public Jugador(int reinicia, int suma){
+        this.reinicia = reinicia; 
         this.suma = suma;
+        this.pts = 0;
+    }
+    
+    public int pts(){
+        this.pts++;
+        return this.pts;
     }
 
+    public int suma(){
+        this.suma += pts;
+        return this.suma;
+    }
+
+    public int puntaje(){ //score()
+        return this.pts;
+    }   
+    
+    public void reinicia(){
+        this.pts = 0;
+    }
+     
     //Getters 
     public int getReinicia(){
         return this.reinicia;
-    }
-
-    public String getOtraVez(){
-        return this.otraVez;
     }
 
     public int getSuma(){
@@ -23,28 +40,20 @@ public class Jugador {
     }
 
     //Setters 
-    public int setReinicia(){
+    public int setReinicia(int reinicia){
         return this.reinicia; //++
     }
 
-    public String setOtraVez(){
-        return this.otraVez; //="No"
-    }
-
-    public int setSuma(){
+    public int setSuma(int suma){
         return this.suma;
     }
-
-    // public void setSuma() throws Exception{
-    //     try{
-    //         this.suma++;
-    //         }catch(Exception e){
-    //             throw new Exception()};
-    // }
     
     public String toString(){
         return "Puntaje: " + this.suma;
-    }
+    } 
 
-    
+    public static int toInt(Object obj){
+        int x = Integer.parseInt(obj.toString());
+        return x;
+    }
 }
